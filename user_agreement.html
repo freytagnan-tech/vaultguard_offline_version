@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Agreement | 用户服务协议 - 密码管理器 (VaultGuard)</title>
+  <meta name="description" content="VaultGuard (com.freytagnan.pwdmanager_local) 100% Offline Standalone Password Manager User Agreement. 纯离线单机用户协议。">
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --bg: #ffffff;
+      --text: #1f2937;
+      --text-muted: #6b7280;
+      --card-bg: #f9fafb;
+      --border: #e5e7eb;
+      --badge-bg: #ecfdf5;
+      --badge-text: #065f46;
+      --warn-bg: #fffbeb;
+      --warn-border: #fde68a;
+      --warn-text: #92400e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111827;
+        --text: #f3f4f6;
+        --text-muted: #9ca3af;
+        --card-bg: #1f2937;
+        --border: #374151;
+        --badge-bg: #064e3b;
+        --badge-text: #a7f3d0;
+        --warn-bg: #78350f;
+        --warn-border: #92400e;
+        --warn-text: #fef3c7;
+      }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--bg);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 40px 20px 80px 20px;
+    }
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .badge {
+      display: inline-block;
+      background-color: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .lang-switcher {
+      display: inline-flex;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .lang-btn {
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    .content-section {
+      display: none;
+    }
+    .content-section.active {
+      display: block;
+    }
+    h2 {
+      font-size: 1.35rem;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      color: var(--primary);
+      border-left: 4px solid var(--primary);
+      padding-left: 10px;
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    p, li {
+      font-size: 0.97rem;
+    }
+    ul, ol {
+      padding-left: 24px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    .callout-warn {
+      background: var(--warn-bg);
+      border-left: 4px solid var(--warn-border);
+      padding: 16px 20px;
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0;
+      color: var(--warn-text);
+    }
+    .callout-warn strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+    .footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+    code {
+      background: var(--card-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-top">
+        <div>
+          <span class="badge">100% Offline / 用户协议</span>
+          <h1 id="page-title">用户服务协议 (User Agreement)</h1>
+        </div>
+        <div class="lang-switcher">
+          <button class="lang-btn active" onclick="setLang('zh')">中文</button>
+          <button class="lang-btn" onclick="setLang('en')">English</button>
+        </div>
+      </div>
+      <div class="meta">
+        <div><strong>应用名称 / Application</strong>: 密码管理器 (VaultGuard 离线版)</div>
+        <div><strong>应用包名 / Package</strong>: <code>com.freytagnan.pwdmanager_local</code></div>
+        <div><strong>生效日期 / Effective Date</strong>: 2026年10月26日 (October 26, 2026)</div>
+        <div><strong>官方支持邮箱 / Support</strong>: <code>freytagnan@proton.me</code></div>
+      </div>
+    </div>
+
+    <!-- 中文内容 -->
+    <div id="content-zh" class="content-section active">
+      <div class="callout-warn">
+        <strong>【重要法律提示与免责警示】</strong>
+        本应用是一款纯本地单机个人密码与凭证管理安全工具。应用在系统清单中彻底剥离了网络通信权限，开发者无法访问您的主密码、解密密钥或保险箱数据。<strong>请务必妥善保管主密码，主密码一旦遗忘，数据将永久无法恢复！</strong>
+      </div>
+
+      <h2>一、 服务定位与软件功能</h2>
+      <ol>
+        <li><strong>本地单机工具定位</strong>：本软件为用户提供本地数据强加密存储、主密码校验、双重身份验证（2FA/TOTP）本地计算、多格式凭据管理、数据离线导入导出及系统级安全自动填充等功能。</li>
+        <li><strong>零网络权限与物理隔离</strong>：本软件在底层设计上彻底移除了网络通信能力（剥离 <code>android.permission.INTERNET</code> 与 <code>android.permission.ACCESS_NETWORK_STATE</code>），所有操作与数据处理均在您持有的物理终端设备本地独立完成。</li>
+      </ol>
+
+      <h2>二、 目标受众与年龄限制</h2>
+      <p><strong>本软件专为具备数字资产管理能力、能够独立妥善保管主密码与承担灾备责任的成年用户（18 岁及以上）设计</strong>。本软件不属于儿童产品，不面向未成年人定向推广，亦未加入 Google Play Families 计划。如未成年人确需使用本软件，必须在法定监护人的全程监督与指导下进行。</p>
+
+      <h2>三、 主密码管理与用户核心安全责任</h2>
+      <ol>
+        <li><strong>纯本地密钥管理与不可找回原则</strong>：您的主密码是派生数据解密密钥（DEK）的唯一核心凭据。本软件不提供、亦在技术上无法提供“找回密码”、“重置密码”或“人工申诉解密”功能。</li>
+        <li><strong>主密码保管责任</strong>：您必须牢记并妥善保管您的主密码。一旦主密码遗忘、丢失或损坏，您加密存储于本软件中的所有数据将永久无法解密和恢复，开发者在技术上与法律上均无法协助您找回数据，由此产生的一切损失和后果由您自行承担。</li>
+        <li><strong>物理与系统环境安全</strong>：若因您自身设备越狱/Root、遭受木马病毒入侵、将主密码告知他人或锁屏密码泄露导致的资产损失，由您自行承担责任。</li>
+      </ol>
+
+      <h2>四、 数据所有权、导出与备份规范</h2>
+      <ol>
+        <li><strong>数据完全所有权</strong>：您在本软件中录入、存储、导入的全部账号、密码、密钥及文字记录等数据，其完整所有权与控制权均归属于您。</li>
+        <li><strong>禁用系统备份与手动迁移</strong>：本软件显式配置了 <code>android:allowBackup="false"</code>，并排除了所有系统云备份与设备自动迁移数据。为防范设备遗失、系统损坏或换机导致数据丢失，您须定期使用应用内加密备份功能导出 <code>.sqlite</code> 文件并妥善保存。</li>
+        <li><strong>明文导出风险自负</strong>：若您选择将本地数据导出为明文 CSV 格式，该文件将完全脱离本软件的加密保护机制。因闪存磨损均衡（Wear Leveling）机制限制，移动存储通常无法保证物理级覆盖擦除，您须承担导出明文文件后的保密与介质保管义务。</li>
+      </ol>
+
+      <h2>五、 免责声明与技术责任限制</h2>
+      <p>本软件按“现状”（AS IS）提供，不包含任何明示或暗示的保证。在法律允许的最大范围内，开发者不对因不可抗力、用户设备硬件损坏、系统崩溃、主密码遗忘、恶意第三方软件攻击或明文导出泄露所造成的任何直接或间接数据损失承担法律赔偿责任。</p>
+
+      <h2>六、 联系我们</h2>
+      <p>如对本协议有任何疑问，请通过以下方式联系：<br>
+      官方客服邮箱: <a href="mailto:freytagnan@proton.me">freytagnan@proton.me</a><br>
+      官方项目仓库: <a href="https://github.com/freytagnan-tech/vaultguard_offline_version" target="_blank">https://github.com/freytagnan-tech/vaultguard_offline_version</a></p>
+    </div>
+
+    <!-- 英文内容 -->
+    <div id="content-en" class="content-section">
+      <div class="callout-warn">
+        <strong>[IMPORTANT NOTICE & LEGAL DISCLAIMER]</strong>
+        VaultGuard is a 100% offline standalone credential management utility. All network permissions have been stripped. The developer cannot access your master password, keys, or data. <strong>If you lose your Master Password, your data is mathematically unrecoverable.</strong>
+      </div>
+
+      <h2>1. Scope of Service & Architecture</h2>
+      <ol>
+        <li><strong>Standalone Offline Utility</strong>: VaultGuard is a 100% offline password and credential management utility. It performs local authenticated encryption (AEAD), master password verification, RFC 6238 TOTP computation, and native autofill.</li>
+        <li><strong>Zero Network Permissions</strong>: Network access permissions (<code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>) have been entirely stripped. The application maintains no servers, APIs, or telemetry endpoints.</li>
+      </ol>
+
+      <h2>2. Target Audience & Age Restrictions</h2>
+      <p><strong>VaultGuard is engineered strictly for adult users (aged 18 and older)</strong> capable of managing digital credentials and disaster recovery responsibilities. It does not target minors and does not participate in Google Play Families.</p>
+
+      <h2>3. Master Password & Data Loss Warning</h2>
+      <ol>
+        <li><strong>No Password Recovery</strong>: Your Master Password is the sole component from which decryption keys are derived. The developer cannot access your master password or vault data. No backdoors, master resets, or cloud recovery mechanisms exist.</li>
+        <li><strong>User Responsibility</strong>: If you lose or forget your Master Password, your data is permanently lost and mathematically unrecoverable.</li>
+      </ol>
+
+      <h2>4. Backups, Android System Backup & Disclaimers</h2>
+      <ol>
+        <li><strong>Android Backup Disabled</strong>: VaultGuard sets <code>android:allowBackup="false"</code> to prevent automated cloud uploads. Transfer to new devices must be performed manually via <code>.sqlite</code> encrypted files.</li>
+        <li><strong>CSV Plaintext Warning</strong>: Plaintext CSV exports leave the encrypted sandbox. Hardware wear leveling prevents physical overwrite guarantees. Safeguard exported files diligently.</li>
+        <li><strong>Limitation of Liability</strong>: To the maximum extent permitted by applicable law, the software is provided "AS IS", without warranties of any kind. The developer shall not be liable for any damages resulting from forgotten passwords, device failure, or compromised operating systems.</li>
+      </ol>
+
+      <h2>5. Support & Inquiries</h2>
+      <p>Official Support Email: <a href="mailto:freytagnan@proton.me">freytagnan@proton.me</a><br>
+      Official Repository: <a href="https://github.com/freytagnan-tech/vaultguard_offline_version" target="_blank">https://github.com/freytagnan-tech/vaultguard_offline_version</a></p>
+    </div>
+
+    <div class="footer">
+      <div class="nav-links">
+        <a href="privacy_policy.html">隐私政策 (Privacy Policy)</a>
+        <span>•</span>
+        <a href="user_guide.html">使用说明书 (User Manual)</a>
+        <span>•</span>
+        <a href="index.html">返回首页 (Home Portal)</a>
+      </div>
+      <div>&copy; 2026 VaultGuard / 密码管理器. All rights reserved.</div>
+    </div>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+      if (lang === 'zh') {
+        document.querySelector('.lang-btn:nth-child(1)').classList.add('active');
+        document.getElementById('content-zh').classList.add('active');
+        document.getElementById('page-title').innerText = '用户服务协议 (User Agreement)';
+        document.documentElement.lang = 'zh-CN';
+      } else {
+        document.querySelector('.lang-btn:nth-child(2)').classList.add('active');
+        document.getElementById('content-en').classList.add('active');
+        document.getElementById('page-title').innerText = 'User Agreement (用户协议)';
+        document.documentElement.lang = 'en';
+      }
+    }
+  </script>
+</body>
+</html>

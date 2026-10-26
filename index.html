@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VaultGuard - 纯离线高安全密码管理器 | 官方门户</title>
+  <meta name="description" content="VaultGuard (com.freytagnan.pwdmanager_local) - 100% Offline Standalone Password & 2FA Manager. 零网络通信、本地认证加密、纯本地沙盒与零数据外泄。">
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 20px 40px 20px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 0 0 16px 0;
+      background: linear-gradient(135deg, #ffffff 40%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 36px auto;
+    }
+    .grid {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px 60px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+    }
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      color: #ffffff;
+    }
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0 0 16px 0;
+    }
+    .card-link {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer {
+      border-top: 1px solid var(--card-border);
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <span class="badge">🔒 100% OFFLINE STANDALONE ARCHITECTURE</span>
+    <h1>VaultGuard 密码保险箱</h1>
+    <p class="subtitle">完全离线、零网络权限、硬件密钥隔离与本地认证加密的高安全离线密码管理器。开发者无法访问您的主密码或保险箱数据。<br><span style="font-size: 0.95rem; opacity: 0.8;">Package: <code>com.freytagnan.pwdmanager_local</code></span></p>
+  </div>
+
+  <div class="grid">
+    <a class="card" href="privacy_policy.html">
+      <div>
+        <div class="card-icon">🛡️</div>
+        <h2 class="card-title">隐私政策 (Privacy Policy)</h2>
+        <p class="card-desc">双语合规文档。详细说明零网络权限、零个人信息与设备标识收集、本地加密与沙盒物理隔离机制。</p>
+      </div>
+      <div class="card-link">查看政策 (View Policy) &rarr;</div>
+    </a>
+
+    <a class="card" href="user_agreement.html">
+      <div>
+        <div class="card-icon">📜</div>
+        <h2 class="card-title">用户协议 (User Agreement)</h2>
+        <p class="card-desc">双语服务协议。包含零知识架构、主密码不可恢复性警示、用户安全责任自负与免责条款。</p>
+      </div>
+      <div class="card-link">阅读协议 (Read Agreement) &rarr;</div>
+    </a>
+
+    <a class="card" href="user_guide.html">
+      <div>
+        <div class="card-icon">📖</div>
+        <h2 class="card-title">使用说明书 (User Manual)</h2>
+        <p class="card-desc">官方双语操作指南。包含初始化设置、四维凭据管理、三级备注使用、两步验证 TOTP 及备份迁移教程。</p>
+      </div>
+      <div class="card-link">查看使用说明 (View Manual) &rarr;</div>
+    </a>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 VaultGuard / 密码管理器. All rights reserved. 纯本地离线单机工具。
+  </div>
+</body>
+</html>

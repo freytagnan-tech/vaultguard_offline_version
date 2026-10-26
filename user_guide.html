@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Manual & Introduction | 软件介绍与使用说明书 - 密码管理器 (VaultGuard)</title>
+  <meta name="description" content="VaultGuard (com.freytagnan.pwdmanager_local) 100% Offline Standalone Password & 2FA Manager Official User Guide. 官方软件介绍与使用说明书。">
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --bg: #ffffff;
+      --text: #1f2937;
+      --text-muted: #6b7280;
+      --card-bg: #f9fafb;
+      --border: #e5e7eb;
+      --badge-bg: #ecfdf5;
+      --badge-text: #065f46;
+      --warn-bg: #fffbeb;
+      --warn-border: #fde68a;
+      --warn-text: #92400e;
+      --step-num-bg: #e0e7ff;
+      --step-num-text: #3730a3;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111827;
+        --text: #f3f4f6;
+        --text-muted: #9ca3af;
+        --card-bg: #1f2937;
+        --border: #374151;
+        --badge-bg: #064e3b;
+        --badge-text: #a7f3d0;
+        --warn-bg: #78350f;
+        --warn-border: #92400e;
+        --warn-text: #fef3c7;
+        --step-num-bg: #312e81;
+        --step-num-text: #c7d2fe;
+      }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--bg);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 40px 20px 80px 20px;
+    }
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .badge {
+      display: inline-block;
+      background-color: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .lang-switcher {
+      display: inline-flex;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .lang-btn {
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    .content-section {
+      display: none;
+    }
+    .content-section.active {
+      display: block;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 36px;
+      margin-bottom: 14px;
+      color: var(--primary);
+      border-left: 4px solid var(--primary);
+      padding-left: 12px;
+    }
+    h3 {
+      font-size: 1.15rem;
+      margin-top: 24px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    p, li {
+      font-size: 0.98rem;
+    }
+    ul, ol {
+      padding-left: 24px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .callout-warn {
+      background: var(--warn-bg);
+      border-left: 4px solid var(--warn-border);
+      padding: 16px 20px;
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0;
+      color: var(--warn-text);
+    }
+    .callout-warn strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+    .step-badge {
+      background: var(--step-num-bg);
+      color: var(--step-num-text);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+    .faq-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+    .faq-q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+    code {
+      background: var(--card-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-top">
+        <div>
+          <span class="badge">100% Offline / 无网络权限单机版</span>
+          <h1 id="page-title">软件介绍与官方使用说明书</h1>
+        </div>
+        <div class="lang-switcher">
+          <button class="lang-btn active" onclick="setLang('zh')">中文</button>
+          <button class="lang-btn" onclick="setLang('en')">English</button>
+        </div>
+      </div>
+      <div class="meta">
+        <div><strong>应用名称 / Application</strong>: 密码管理器 (VaultGuard 离线版)</div>
+        <div><strong>应用包名 / Package</strong>: <code>com.freytagnan.pwdmanager_local</code></div>
+        <div><strong>政策直链 / Policy Link</strong>: <a href="https://freytagnan-tech.github.io/public_doc/privacy_policy.html" target="_blank">https://freytagnan-tech.github.io/public_doc/privacy_policy.html</a></div>
+        <div><strong>官方支持邮箱 / Support</strong>: <code>freytagnan@proton.me</code></div>
+      </div>
+    </div>
+
+    <!-- 中文版内容 -->
+    <div id="content-zh" class="content-section active">
+      <h2>一、 软件定位与核心理念</h2>
+      <p><strong>VaultGuard（密码保险箱 - 离线版）</strong> 是一款专为极致数据安全与隐私设计的<strong>纯本地单机高安全密码与两步验证（2FA/TOTP）管理器</strong>。</p>
+      <p>在云端数据泄露事件与第三方静默数据收集日益频繁的今天，VaultGuard 坚持<strong>“无网络权限（Zero Network Permission）”</strong>与<strong>“本地认证加密（AEAD）”</strong>架构：</p>
+      <ul>
+        <li><strong>物理切断网络权限</strong>：应用在 AndroidManifest.xml 清单中彻底剔除并阻断了 <code>android.permission.INTERNET</code> 与 <code>android.permission.ACCESS_NETWORK_STATE</code> 网络权限，无任何后台服务器、无远程 API、无分析追踪代码。</li>
+        <li><strong>本地硬件与认证加密</strong>：主加密密钥由用户自主掌握的主密码通过 <strong>Argon2id</strong> 算法派生（默认 16 MB 内存，3 迭代，1 并行度，16 字节随机盐，结合 Blake2b 预哈希派生 32 字节 KEK），并在设备安全硬件芯片（Android Keystore / TEE / StrongBox）隔离保护下，对所有数据采用 <strong>XChaCha20-Poly1305</strong>（默认 256 位认证加密，配合 24 字节安全随机扩展 Nonce）或 <strong>AES-256-GCM</strong> 工业级强算法进行本地认证加密。</li>
+        <li><strong>纯本地零外泄</strong>：所有数据均只保留在您当前设备的本地私有加密数据库中，开发者无法访问您的主密码或保险箱数据，绝无任何主动外部通信通道。</li>
+        <li><strong>目标受众声明</strong>：本应用面向具备数字资产管理能力、能够独立妥善保管主密码与灾备责任的<strong>成年用户（18 岁及以上）</strong>设计。</li>
+      </ul>
+
+      <h2>二、 核心功能特性</h2>
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-badge">特性 1</span>
+          <span>多维凭据类型支持</span>
+        </div>
+        <p>提供常规账号密码、API 密钥/开发 Token、密保助记词（Mnemonic Phrases 英文切块展示）以及基于 RFC 6238 标准的 TOTP 动态口令管理。每条记录均支持独立的三级备注（备注1、备注2、备注3）。</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-badge">特性 2</span>
+          <span>高熵密码生成器</span>
+        </div>
+        <p>内置密码学强度的伪随机数生成器，支持大写、小写、数字、特殊符号任意组合，最长可配置 64 位长度，并提供实时比特熵（Entropy bits）与安全评级评估。</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-badge">特性 3</span>
+          <span>Android 系统原生自动填充（Autofill Service）</span>
+        </div>
+        <p>深度对接 Android 原生自动填充框架，在外部网页或 App 表单中一键填充凭据。严格校验包名与 Web 域名等价关系，锁定状态下必须经过生物识别或主密码重新授权，有效抵御钓鱼与跨应用窃取。</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-badge">特性 4</span>
+          <span>加密备份（.sqlite）与通用 CSV 迁移</span>
+        </div>
+        <p>支持将数据库打包为由独立强密码派生的加密备份文件（.sqlite），具备认证完整性校验与原子恢复机制。同时支持通用 CSV 导入导出，内置 CSV 公式注入（Formula Injection）与 DoS 超大文件防御。</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-badge">特性 5</span>
+          <span>硬件级生物识别与安全防窥</span>
+        </div>
+        <p>支持指纹/面容快速解密，私钥受 StrongBox/TEE 芯片隔离保护。在锁定状态和凭据查看页强制启用 <code>FLAG_SECURE</code> 防截屏、录屏与多任务预览卡片泄露。</p>
+      </div>
+
+      <h2>三、 操作指南与安全注意事项</h2>
+      <div class="callout-warn">
+        <strong>⚠️ 核心防丢警示</strong>
+        由于本软件为 100% 纯本地离线单机应用，不设任何云端服务器，且应用显式设置了 <code>android:allowBackup="false"</code> 禁用了系统云端备份。卸载应用或清除系统应用数据将彻底删除本地私有数据库。如需更换设备、刷机或卸载应用，请务必提前在【我的】页面导出 <code>.sqlite</code> 加密备份文件保存！主密码一旦遗失，任何人都无法解密找回！
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><span class="step-badge">步骤 1</span><span>初始化保险箱</span></div>
+        <p>安装后首次打开，设置长度至少 10 位、包含大小写字母、数字和符号的主密码。系统将使用 Argon2id 派生 DEK 并生成本地加密数据库。</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><span class="step-badge">步骤 2</span><span>添加与管理凭据</span></div>
+        <p>点击主界面悬浮“+”按钮，选择记录类型，输入标题、账号、密码及三级备注。点击“保存新记录”后即刻进行 XChaCha20-Poly1305 / AES-256-GCM 本地认证加密存储。</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><span class="step-badge">步骤 3</span><span>两步验证码（TOTP）</span></div>
+        <p>支持相机实时扫码或从相册导入二维码图片（纯离线解析，绝不上存或保留帧数据）。动态口令每 30 秒自动刷新，点击口令即可复制，剪贴板在 45 秒后自动清空，通知和 Toast 绝不回显验证码明文。</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><span class="step-badge">步骤 4</span><span>自动填充服务</span></div>
+        <p>进入系统“设置 &rarr; 系统 &rarr; 语言和输入法 &rarr; 自动填充服务”，勾选本应用。在第三方 App 或浏览器登录框点击即可唤起填充，锁定状态需重新验证生物识别或主密码。</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header"><span class="step-badge">步骤 5</span><span>数据备份与换机迁移</span></div>
+        <p><strong>推荐换机方式（加密备份）</strong>：在“我的”页面点击“导出加密备份”，设置专属备份密码，生成 <code>.sqlite</code> 文件。在新设备上安装本应用，点击“导入加密备份”输入密码即可原子恢复所有数据。<br>
+        <strong>明文 CSV 注意事项</strong>：因闪存磨损均衡（Wear Leveling）机制，移动存储通常无法保证物理彻底擦除，请用户谨慎导出明文 CSV 并妥善保管存储介质。</p>
+      </div>
+
+      <h2>四、 常见问题解答 (FAQ)</h2>
+      <div class="faq-card">
+        <div class="faq-q">Q1：应用是否真的不需要任何网络？</div>
+        <p class="faq-a">是的。Manifest 清单中完全移除了 <code>android.permission.INTERNET</code> 与 <code>android.permission.ACCESS_NETWORK_STATE</code>，操作系统物理阻断了应用的所有网络请求。</p>
+      </div>
+      <div class="faq-card">
+        <div class="faq-q">Q2：如果我忘记了主密码，开发者能帮我恢复吗？</div>
+        <p class="faq-a"><strong>绝无可能</strong>。本应用为纯本地单机架构，所有加密密钥均由您的主密码在本地内存实时派生，开发者与任何第三方均无法访问主密码或数据库。如果您遗忘了主密码，没有任何人能够解密您的本地数据库。</p>
+      </div>
+      <div class="faq-card">
+        <div class="faq-q">Q3：换手机时，如何将数据安全迁移到新设备？</div>
+        <p class="faq-a">由于本应用禁用了 Android 系统的自动云备份（<code>android:allowBackup="false"</code>），换机时数据不会自动上云。您只需在旧手机的“我的”页面导出受密码保护的 <code>.sqlite</code> 加密备份文件，通过 USB、离线局域网或蓝牙将其传输至新手机，在新手机上点击“导入加密备份”输入密码即可无缝迁移。</p>
+      </div>
+    </div>
+
+    <!-- 英文版内容 -->
+    <div id="content-en" class="content-section">
+      <h2>1. Product Positioning & Core Philosophy</h2>
+      <p><strong>VaultGuard (Offline Standalone Edition)</strong> is a high-security, 100% offline local password and two-factor authentication (2FA/TOTP) manager engineered specifically for data sovereignty and absolute privacy.</p>
+      <ul>
+        <li><strong>Zero Network Permission</strong>: The application completely strips and prohibits <code>android.permission.INTERNET</code> and <code>android.permission.ACCESS_NETWORK_STATE</code> in AndroidManifest.xml. There are zero backend servers, zero remote APIs, and zero analytics trackers.</li>
+        <li><strong>Hardware-Backed Local Authenticated Encryption (AEAD)</strong>: Your Master Key is derived locally from your Master Password via <strong>Argon2id</strong> (RFC 9106, default 16 MB memory, 3 iterations, 1 lane, 16-byte random salt, Blake2b prehash) and wrapped inside the hardware keystore enclave (TEE / StrongBox). Vault entries are authenticated and encrypted using <strong>XChaCha20-Poly1305</strong> (default with 24-byte CSPRNG extended nonces) or <strong>AES-256-GCM</strong>.</li>
+        <li><strong>Data Sovereignty</strong>: The developer cannot access your master password or vault contents. Data remains exclusively in your device's isolated application sandbox.</li>
+        <li><strong>Target Audience</strong>: Designed strictly for adult users (<strong>aged 18 and older</strong>) capable of managing digital credentials and disaster recovery.</li>
+      </ul>
+
+      <h2>2. Core Features</h2>
+      <div class="step-card">
+        <div class="step-header"><span class="step-badge">Feature 1</span><span>Four Credential Types</span></div>
+        <p>General Passwords, API Tokens, Crypto Mnemonic Phrases, and RFC 6238 TOTP/2FA codes with 3 custom notes per entry.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-header"><span class="step-badge">Feature 2</span><span>High-Entropy Password Generator</span></div>
+        <p>Generates custom-length passwords (up to 64 chars) with real-time entropy calculation.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-header"><span class="step-badge">Feature 3</span><span>Android Native Autofill Service</span></div>
+        <p>Autofills credentials across apps and browsers with strict anti-phishing domain matching and biometric re-authentication.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-header"><span class="step-badge">Feature 4</span><span>Dual Backup System</span></div>
+        <p>Encrypted <code>.sqlite</code> backup archives (with atomic integrity verification) and standard CSV import/export (with formula injection mitigations).</p>
+      </div>
+      <div class="step-card">
+        <div class="step-header"><span class="step-badge">Feature 5</span><span>Biometric Quick Unlock & Screen Security</span></div>
+        <p>Fast biometric unlock supported by hardware TEE/StrongBox key wrapping. <code>FLAG_SECURE</code> enforced on lock screen and credential views to block screenshots and task preview leakage.</p>
+      </div>
+
+      <h2>3. Backup, Migration & Android System Backup Notice</h2>
+      <div class="callout-warn">
+        <strong>⚠️ Disaster Prevention Warning</strong>
+        VaultGuard explicitly sets <code>android:allowBackup="false"</code> and blocks all cloud backup and device transfer rules to prevent cloud extraction. Transfer to new devices must be performed manually via <code>.sqlite</code> encrypted files. If you lose your Master Password, no one can recover your data.
+      </div>
+
+      <h2>4. Frequently Asked Questions (FAQ)</h2>
+      <div class="faq-card">
+        <div class="faq-q">Q1: Does this app really have zero network access?</div>
+        <p class="faq-a">Yes. Network permissions are completely removed. The Android OS prohibits any network connection regardless of Wi-Fi or cellular state.</p>
+      </div>
+      <div class="faq-card">
+        <div class="faq-q">Q2: If I forget my Master Password, can the developer help me recover my data?</div>
+        <p class="faq-a"><strong>No, it is technically impossible.</strong> VaultGuard operates on a pure local offline architecture. Encryption keys are derived only in memory on your physical device. No backdoors or recovery keys exist.</p>
+      </div>
+      <div class="faq-card">
+        <div class="faq-q">Q3: How do I transfer my vault to a new phone?</div>
+        <p class="faq-a">Export an "Encrypted Backup" on the old phone, move the encrypted <code>.sqlite</code> file via USB or Bluetooth to the new phone, and import it using your backup password.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="nav-links">
+        <a href="privacy_policy.html">隐私政策 (Privacy Policy)</a>
+        <span>•</span>
+        <a href="user_agreement.html">用户协议 (User Agreement)</a>
+        <span>•</span>
+        <a href="index.html">返回首页 (Home Portal)</a>
+      </div>
+      <div>&copy; 2026 VaultGuard / 密码管理器. All rights reserved.</div>
+    </div>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+      if (lang === 'zh') {
+        document.querySelector('.lang-btn:nth-child(1)').classList.add('active');
+        document.getElementById('content-zh').classList.add('active');
+        document.getElementById('page-title').innerText = '软件介绍与官方使用说明书';
+        document.documentElement.lang = 'zh-CN';
+      } else {
+        document.querySelector('.lang-btn:nth-child(2)').classList.add('active');
+        document.getElementById('content-en').classList.add('active');
+        document.getElementById('page-title').innerText = 'User Manual & Introduction (使用说明书)';
+        document.documentElement.lang = 'en';
+      }
+    }
+  </script>
+</body>
+</html>
